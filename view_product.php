@@ -44,7 +44,7 @@
                 </div>
                 <div class="fs-5 mb-5 d-flex justify-content-start">
                     <?php foreach($inv as $k => $v): ?>
-                        <span><button class="btn btn-sm btn-flat btn-outline-dark m-2 p-size text-black <?php echo $k == 0 ? "active":'' ?>" data-id="<?php echo $k ?>"><?php echo $v['size'] ?></button></span>
+                        <span><button class="btn btn-sm btn-flat btn-outline-dark m-2 p-size <?php echo $k == 0 ? "active":'' ?>" data-id="<?php echo $k ?>"><?php echo $v['size'] ?></button></span>
                     <?php endforeach; ?>
                 </div>
                 <form action="" id="add-cart">
@@ -67,7 +67,7 @@
 <!-- Related items section-->
 <section class="py-5 bg-light">
     <div class="container px-4 px-lg-5 mt-5">
-        <h2 class="fw-bolder mb-4">Related products</h2>
+        <h2 class="fw-bolder mb-4 text-white">Related products</h2>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         <?php 
             $products = $conn->query("SELECT * FROM `products` where status = 1 and (category_id = '{$category_id}' or sub_category_id = '{$sub_category_id}') and id !='{$id}' order by rand() limit 4 ");
@@ -153,7 +153,7 @@
                 },
                 success:function(resp){
                     if(typeof resp == 'object' && resp.status=='success'){
-                        alert_toast("Product added to cart.",'success')
+                        alert_toast("Product added!",'success')
                         $('#cart-count').text(resp.cart_count)
                     }else{
                         console.log(resp)

@@ -6,7 +6,7 @@
                 <button class="btn btn-outline-dark btn-flat btn-sm" type="button" id="empty_cart">Empty Cart</button>
             </div>
         </div>
-        <div class="card rounded-0">
+        <div class="card rounded-0 text-white">
             <div class="card-body">
                 <h3><b>Cart List</b></h3>
                 <hr class="border-dark">
@@ -131,6 +131,7 @@
                     item.hide('slow',function(){ item.remove() })
                     calc_total()
                     end_loader()
+                    location.reload()
                 }else{
                     alert_toast("an error occured", 'error');
                     end_loader()
