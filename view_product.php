@@ -44,7 +44,7 @@
                 </div>
                 <div class="fs-5 mb-5 d-flex justify-content-start">
                     <?php foreach($inv as $k => $v): ?>
-                        <span><button class="btn btn-sm btn-flat btn-outline-dark m-2 p-size <?php echo $k == 0 ? "active":'' ?>" data-id="<?php echo $k ?>"><?php echo $v['size'] ?></button></span>
+                        <span><button class="btn btn-sm btn-flat btn-outline-dark m-2 p-size text-black <?php echo $k == 0 ? "active":'' ?>" data-id="<?php echo $k ?>"><?php echo $v['size'] ?></button></span>
                     <?php endforeach; ?>
                 </div>
                 <form action="" id="add-cart">

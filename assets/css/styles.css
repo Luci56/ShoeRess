@@ -10675,7 +10675,7 @@ fieldset:disabled .btn {
 
 .p-size.active {
     border: 1px solid var(--bs-primary) !important;
-    background: white !important;
+    background: black !important;
     position: relative;
     color: var(--bs-dark) !important;
 }

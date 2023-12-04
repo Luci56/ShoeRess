@@ -25,7 +25,7 @@ Class Users extends DBConnection {
 			$data .= " `password` = '{$password}' ";
 		}
 
-		if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
+		/*if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
 				$fname = 'uploads/'.strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
 				$move = move_uploaded_file($_FILES['img']['tmp_name'],'../'. $fname);
 				if($move){
@@ -33,11 +33,11 @@ Class Users extends DBConnection {
 					if(isset($_SESSION['userdata']['avatar']) && is_file('../'.$_SESSION['userdata']['avatar']))
 						unlink('../'.$_SESSION['userdata']['avatar']);
 				}
-		}
+		}*/
 		if(empty($id)){
 			$qry = $this->conn->query("INSERT INTO users set {$data}");
 			if($qry){
-				$this->settings->set_flashdata('success','User Details successfully saved.');
+				$this->settings->set_flashdata('success','User Details saved!');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -52,7 +52,7 @@ Class Users extends DBConnection {
 		}else{
 			$qry = $this->conn->query("UPDATE users set $data where id = {$id}");
 			if($qry){
-				$this->settings->set_flashdata('success','User Details successfully updated.');
+				$this->settings->set_flashdata('success','ssfully updated.');
 				foreach($_POST as $k => $v){
 					if($k != 'id'){
 						if(!empty($data)) $data .=" , ";
@@ -73,7 +73,7 @@ Class Users extends DBConnection {
 		extract($_POST);
 		$qry = $this->conn->query("DELETE FROM users where id = $id");
 		if($qry){
-			$this->settings->set_flashdata('success','User Details successfully deleted.');
+			$this->settings->set_flashdata('success','User Details deleted!');
 			return 1;
 		}else{
 			return false;
@@ -92,7 +92,7 @@ Class Users extends DBConnection {
 			if(!empty($password))
 			$data .= ", `password` = '".md5($password)."' ";
 		
-			if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
+			/*if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
 				$fname = 'uploads/'.strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
 				$move = move_uploaded_file($_FILES['img']['tmp_name'],'../'. $fname);
 				if($move){
@@ -100,12 +100,12 @@ Class Users extends DBConnection {
 					if(isset($_SESSION['userdata']['avatar']) && is_file('../'.$_SESSION['userdata']['avatar']))
 						unlink('../'.$_SESSION['userdata']['avatar']);
 				}
-			}
+			}*/
 			$sql = "UPDATE faculty set {$data} where id = $id";
 			$save = $this->conn->query($sql);
 
 			if($save){
-			$this->settings->set_flashdata('success','User Details successfully updated.');
+			$this->settings->set_flashdata('success','User Details updated!');
 			foreach($_POST as $k => $v){
 				if(!in_array($k,array('id','password'))){
 					if(!empty($data)) $data .=" , ";
@@ -135,7 +135,7 @@ Class Users extends DBConnection {
 			if(!empty($password))
 			$data .= ", `password` = '".md5($password)."' ";
 		
-			if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
+			/*if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
 				$fname = 'uploads/'.strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];
 				$move = move_uploaded_file($_FILES['img']['tmp_name'],'../'. $fname);
 				if($move){
@@ -143,12 +143,12 @@ Class Users extends DBConnection {
 					if(isset($_SESSION['userdata']['avatar']) && is_file('../'.$_SESSION['userdata']['avatar']))
 						unlink('../'.$_SESSION['userdata']['avatar']);
 				}
-			}
+			}*/
 			$sql = "UPDATE students set {$data} where id = $id";
 			$save = $this->conn->query($sql);
 
 			if($save){
-			$this->settings->set_flashdata('success','User Details successfully updated.');
+			$this->settings->set_flashdata('success','User Details updated!');
 			foreach($_POST as $k => $v){
 				if(!in_array($k,array('id','password'))){
 					if(!empty($data)) $data .=" , ";
@@ -156,7 +156,7 @@ Class Users extends DBConnection {
 				}
 			}
 			if(isset($fname) && isset($move))
-			$this->settings->set_userdata('avatar',$fname);
+			//$this->settings->set_userdata('avatar',$fname);
 			return 1;
 			}else{
 				$resp['error'] = $sql;
