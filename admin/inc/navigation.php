@@ -1,10 +1,10 @@
 </style>
 <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4 sidebar-no-expand">
+      <aside class="main-sidebar sidebar-light-primary elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
         <a href="<?php echo base_url ?>admin" class="brand-link bg-primary text-sm">
         <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3" style="opacity: .8;width: 2.5rem;height: 2.5rem;max-height: unset">
-        <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
+        <span class="brand-text font-weight-light "><?php echo $_settings->info('short_name') ?></span>
         </a>
         <!-- Sidebar -->
         <div class="sidebar os-host os-theme-light os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-transition os-host-scrollbar-horizontal-hidden">
@@ -35,7 +35,7 @@
                       <a href="<?php echo base_url ?>admin/?page=product" class="nav-link nav-product">
                         <i class="nav-icon fas fa-box"></i>
                         <p>
-                          Product List
+                          Products
                         </p>
                       </a>
                     </li>
@@ -43,7 +43,7 @@
                       <a href="<?php echo base_url ?>admin/?page=inventory" class="nav-link nav-inventory">
                         <i class="nav-icon fas fa-clipboard-list"></i>
                         <p>
-                          Inventory List
+                          Inventory
                         </p>
                       </a>
                     </li>
@@ -51,7 +51,7 @@
                       <a href="<?php echo base_url ?>admin/?page=orders" class="nav-link nav-orders">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
-                          Order List
+                          Orders Management
                         </p>
                       </a>
                     </li>
@@ -60,7 +60,7 @@
                       <a href="<?php echo base_url ?>admin/?page=maintenance/category" class="nav-link nav-maintenance/category">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Category List
+                          Categories
                         </p>
                       </a>
                     </li>
@@ -68,7 +68,7 @@
                       <a href="<?php echo base_url ?>admin/?page=maintenance/sub_category" class="nav-link nav-maintenance/sub_category">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Sub Category List
+                          Sub Categories
                         </p>
                       </a>
                     </li>

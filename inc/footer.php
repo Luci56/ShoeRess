@@ -59,7 +59,7 @@
   })
 </script>
 <!-- Footer-->
-<footer class="py-5 bg-dark">
+<footer class="py-5">
             <div class="container">
               <p class="m-0 text-center text-white">Copyright &copy; <?php echo $_settings->info('short_name') ?> 2023</p>
               <p class="m-0 text-center text-white">Created By: <a href="sturzuluci@gmail.com">Sturzu Stefan Lucian</a></p>

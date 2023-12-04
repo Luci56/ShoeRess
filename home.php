@@ -1,5 +1,5 @@
  <!-- Header-->
- <header class="bg-dark py-5" id="main-header">
+ <header class="py-5" id="main-header">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder">Find the best shoes </h1>
@@ -33,7 +33,7 @@
                     <!-- Product image-->
                     <img class="card-img-top w-100" src="<?php echo validate_image($img) ?>" alt="..." />
                     <!-- Product details-->
-                    <div class="card-body p-4">
+                    <div class="card-body p-4 text-white">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder"><?php echo $row['product_name'] ?></h5>

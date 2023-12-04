@@ -25,7 +25,7 @@ elseif(isset($_GET['s'])){
 }
 ?>
 <!-- Header-->
-<header class="bg-dark py-5" id="main-header">
+<header class=" py-5" id="main-header">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <h1 class="display-4 fw-bolder"><?php echo $title ?></h1>
@@ -75,7 +75,7 @@ elseif(isset($_GET['s'])){
                     <!-- Product image-->
                     <img class="card-img-top w-100" src="<?php echo validate_image($img) ?>" loading="lazy" alt="..." />
                     <!-- Product details-->
-                    <div class="card-body p-4">
+                    <div class="card-body p-4 text-white">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder"><?php echo $row['product_name'] ?></h5>
@@ -97,7 +97,7 @@ elseif(isset($_GET['s'])){
             <?php endwhile; ?>
             <?php 
                 if($products->num_rows <= 0){
-                    echo "<h4 class='text-center'><b>No Product Listed.</b></h4>";
+                    echo "<h4 class='text-center'><b>No Shoes Listed.</b></h4>";
                 }
             ?>
         </div>

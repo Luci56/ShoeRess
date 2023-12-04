@@ -91,7 +91,7 @@
                     <!-- Product image-->
                     <img class="card-img-top w-100" src="<?php echo validate_image($img) ?>" alt="..." />
                     <!-- Product details-->
-                    <div class="card-body p-4">
+                    <div class="card-body p-4 text-white">
                         <div class="text-center">
                             <!-- Product name-->
                             <h5 class="fw-bolder"><?php echo $row['product_name'] ?></h5>

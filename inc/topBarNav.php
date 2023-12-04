@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5 ">
                 <button class="navbar-toggler btn btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <a class="navbar-brand" href="./">
-                <img src="<?php echo validate_image($_settings->info('logo')) ?>" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                <a class="navbar-brand text-white" href="./">
+                <img src="<?php echo validate_image($_settings->info('logo')) ?>" width="30" height="30" class="d-inline-block align-top text-white" alt="" loading="lazy">
                 <?php echo $_settings->info('short_name') ?>
                 </a>
 
@@ -16,19 +16,19 @@
                 </form>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="./">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" aria-current="page" href="./">Home</a></li>
                         <?php 
                         $cat_qry = $conn->query("SELECT * FROM categories where status = 1 ");
                         while($crow = $cat_qry->fetch_assoc()):
                           $sub_qry = $conn->query("SELECT * FROM sub_categories where status = 1 and parent_id = '{$crow['id']}' ");
                           if($sub_qry->num_rows <= 0):
                         ?>
-                        <li class="nav-item"><a class="nav-link" aria-current="page" href="./?p=products&c=<?php echo md5($crow['id']) ?>"><?php echo $crow['category'] ?></a></li>
+                        <li class="nav-item"><a class="nav-link text-white" aria-current="page" href="./?p=products&c=<?php echo md5($crow['id']) ?>"><?php echo $crow['category'] ?></a></li>
                         
                         <?php else: ?>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" id="navbarDropdown<?php echo $crow['id'] ?>" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><?php echo $crow['category'] ?></a></a>
-                            <ul class="dropdown-menu  p-0" aria-labelledby="navbarDropdown<?php echo $crow['id'] ?>">
+                        <li class="nav-item dropdown text-white">
+                          <a class="nav-link dropdown-toggle text-white" id="navbarDropdown<?php echo $crow['id'] ?>" href="#" role="button" data-toggle="dropdown" aria-expanded="false"><?php echo $crow['category'] ?></a></a>
+                            <ul class="dropdown-menu  p-0 text-white" aria-labelledby="navbarDropdown<?php echo $crow['id'] ?>">
                               <?php while($srow = $sub_qry->fetch_assoc()): ?>
                                 <li><a class="dropdown-item border-bottom" href="./?p=products&c=<?php echo md5($crow['id']) ?>&s=<?php echo md5($srow['id']) ?>"><?php echo $srow['sub_category'] ?></a></li>
                             <?php endwhile; ?>
@@ -36,16 +36,16 @@
                         </li>
                         <?php endif; ?>
                         <?php endwhile; ?>
-                        <li class="nav-item"><a class="nav-link" href="./?p=about">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="./?p=about">About</a></li>
                     </ul>
                     <div class="d-flex align-items-center">
                       <?php if(!isset($_SESSION['userdata']['id'])): ?>
                         <button class="btn btn-outline-dark ml-2" id="login-btn" type="button">Login</button>
                         <?php else: ?>
-                        <a class="text-dark mr-2 nav-link" href="./?p=cart">
-                            <i class="bi-cart-fill me-1"></i>
+                        <a class="text-dark mr-2 nav-link text-white" href="./?p=cart">
+                            <i class="bi-cart-fill me-1 text-white" ></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart-count">
+                            <span class="badge text-white ms-1 rounded-pill text-white" id="cart-count">
                               <?php 
                               if(isset($_SESSION['userdata']['id'])):
                                 $count = $conn->query("SELECT SUM(quantity) as items from `cart` where client_id =".$_settings->userdata('id'))->fetch_assoc()['items'];
@@ -57,8 +57,8 @@
                             </span>
                         </a>
                         
-                            <a href="./?p=my_account" class="text-dark  nav-link"><b><?php echo $_settings->userdata('firstname')?>!</b></a>
-                            <a href="logout.php" class="text-dark  nav-link"><i class="fa fa-sign-out-alt"></i></a>
+                            <a href="./?p=my_account" class="text-white  nav-link"><b><?php echo $_settings->userdata('firstname')?>!</b></a>
+                            <a href="logout.php" class="text-white  nav-link"><i class="fa fa-sign-out-alt"></i></a>
                         <?php endif; ?>
                     </div>
                 </div>

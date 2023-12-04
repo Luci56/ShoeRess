@@ -1,6 +1,6 @@
     
 <section class="py-2">
-    <div class="container">
+    <div class="container text-white">
         <div class="card rounded-0">
             <div class="card-body">
                 <div class="w-100 justify-content-between d-flex">
@@ -8,7 +8,7 @@
                     <a href="./?p=edit_account" class="btn btn btn-dark btn-flat"><div class="fa fa-user-cog"></div> Manage Account</a>
                 </div>
                     <hr class="border-warning">
-                    <table class="table table-stripped text-dark">
+                    <table class="table table-stripped text-white">
                         <colgroup>
                             <col width="10%">
                             <col width="15">
