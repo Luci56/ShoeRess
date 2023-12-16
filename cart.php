@@ -135,6 +135,7 @@
                 }else{
                     alert_toast("an error occured", 'error');
                     end_loader()
+                    location.reload()
                 }
             }
 

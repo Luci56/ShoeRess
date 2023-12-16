@@ -1,4 +1,11 @@
 <?php
+	require('PHPMailer.php');
+	require('Exception.php');
+	require('SMTP.php');
+	
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+	
 require_once('../config.php');
 Class Master extends DBConnection {
 	private $settings;
@@ -259,7 +266,41 @@ Class Master extends DBConnection {
 
 	}
 	function register(){
+
+
 		extract($_POST);
+
+
+		error_log('startsend mail nico');
+			//Create an instance; passing `true` enables exceptions
+			$mail = new PHPMailer(true);
+			$mail->CharSet = "UFT-8";
+	
+			// Configurări server SMTP
+			$mail->SMTPDebug = 0; // Setează la 2 pentru debugging
+			$mail->isSMTP();
+			$mail->Host = 'smtp-relay.brevo.com'; // Serverul tău SMTP
+			$mail->SMTPAuth = true;
+			$mail->Username = 'sturzuluci@gmail.com';// SMTP username
+			$mail->Password = 'qskJN3GAHgYnRTrZ';// SMTP password
+			$mail->SMTPSecure = 'tls'; // Activează criptarea TLS, acceptă și 'ssl'
+			$mail->Port = 587; // Portul TCP pentru conexiune
+	
+			// Destinatari
+			$mail->setFrom('sturzuluci@gmail.com', 'ShoeRess'); // Adresa și numele expeditorului
+			$mail->addAddress('nick2us@gmail.com', 'Nicolae'); // Adresa destinatarului
+	
+			// Conținut
+			$mail->isHTML(true);
+			$mail->Subject = 'Order Placed Successfully';
+			
+			// Construiește corpul email-ului
+			$mailBody = '<p>Thank you for placing an order. Your order has been received successfully.</p>';
+			$mail->Body = $mailBody;
+			
+			// Trimite email-ul
+			$mail->send();
+            error_log('passed-nico');
 		$data = "";
 		$_POST['password'] = md5($_POST['password']);
 		foreach($_POST as $k =>$v){
