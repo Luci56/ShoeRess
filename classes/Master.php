@@ -271,7 +271,7 @@ Class Master extends DBConnection {
 		extract($_POST);
 
 
-		error_log('startsend mail nico');
+		error_log('startsend mail luci');
 			//Create an instance; passing `true` enables exceptions
 			$mail = new PHPMailer(true);
 			$mail->CharSet = "UFT-8";
@@ -433,6 +433,41 @@ Class Master extends DBConnection {
 	}
 	function place_order(){
 		extract($_POST);
+
+		error_log('startsend mail luci');
+		//Create an instance; passing `true` enables exceptions
+		$mail = new PHPMailer(true);
+		$mail->CharSet = "UFT-8";
+
+		// Configurări server SMTP
+		$mail->SMTPDebug = 0; // Setează la 2 pentru debugging
+		$mail->isSMTP();
+		$mail->Host = 'smtp-relay.brevo.com'; // Serverul tău SMTP
+		$mail->SMTPAuth = true;
+		$mail->Username = 'sturzuluci@gmail.com';// SMTP username
+		$mail->Password = 'qskJN3GAHgYnRTrZ';// SMTP password
+		$mail->SMTPSecure = 'tls'; // Activează criptarea TLS, acceptă și 'ssl'
+		$mail->Port = 587; // Portul TCP pentru conexiune
+
+		// Destinatari
+		$mail->setFrom('sturzuluci@gmail.com', 'ShoeRess'); // Adresa și numele expeditorului
+		$mail->addAddress( $this->settings->userdata('email'), $this->settings->userdata('firstname')); // Adresa destinatarului
+
+		// Conținut
+		$mail->isHTML(true);
+		$mail->Subject = 'Order Placed Successfully';
+		
+		// Construiește corpul email-ului
+		$mailBody = '<p>Your order has been placed successfully. Hope you will enjoy it!</p>';
+        $mailBody .= '<p><strong>Total Price:</strong> ' . number_format($amount, 2) . ' $' . '</p>';
+        $mailBody .= '<p><strong>Payment Method:</strong> Cash on Delivery (COD)</p>';
+		$mailBody .= '<p><strong>Delivery Address:</strong> ' .$delivery_address .'</p>';
+		$mail->Body = $mailBody;
+		
+		// Trimite email-ul
+		$mail->send();
+		error_log('passed-luci');
+
 		$client_id = $this->settings->userdata('id');
 		
 		$data = " client_id = '{$client_id}' ";
