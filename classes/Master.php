@@ -288,14 +288,14 @@ Class Master extends DBConnection {
 	
 			// Destinatari
 			$mail->setFrom('sturzuluci@gmail.com', 'ShoeRess'); // Adresa și numele expeditorului
-			$mail->addAddress('nick2us@gmail.com', 'Nicolae'); // Adresa destinatarului
+			$mail->addAddress($_POST['email'], $_POST['firstname']); // Adresa destinatarului
 	
 			// Conținut
 			$mail->isHTML(true);
-			$mail->Subject = 'Order Placed Successfully';
+			$mail->Subject = 'Account Successfully Created';
 			
 			// Construiește corpul email-ului
-			$mailBody = '<p>Thank you for placing an order. Your order has been received successfully.</p>';
+			$mailBody = '<p>Your account has been successfully created. Hope you will have an amazing experience on our site!</p>';
 			$mail->Body = $mailBody;
 			
 			// Trimite email-ul
